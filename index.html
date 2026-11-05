@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한남컨설팅</title>
+<meta name="description" content="(주)한남컨설팅 - 중소기업 성장 로드맵. 기업부설연구소·연구개발전담부서 설립과 사후관리, 국가지원사업 컨설팅">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  /* 네이비 밴드 + 골드 포인트, 1120px 단일 컬럼 섹션 */
+  :root{
+    --navy:#0f2a4a; --navy-2:#173a63; --gold:#c49a4a; --gold-soft:#f4ead6;
+    --ink:#1d232b; --muted:#5d6773; --line:#e3e7ec; --bg:#ffffff; --bg-alt:#f6f8fa;
+    --surface:#ffffff; --heading:#0f2a4a; --header-bg:rgba(255,255,255,.95); --footer:#0a1d33;
+    --ph-bg:#fff6d6; --ph-line:#d8b350; --ph-ink:#7a5a00; --photo-a:#dfe5ec; --photo-b:#c7d0da;
+    --radius:14px; --max:1120px;
+  }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+    --gold:#d4ad62; --gold-soft:#2c2515; --ink:#e4e9ef; --muted:#9eabb9; --line:#263445;
+    --bg:#0c131b; --bg-alt:#111b26; --surface:#162230; --heading:#eef3f8; --header-bg:rgba(12,19,27,.94);
+    --footer:#060d16; --ph-bg:#3a3116; --ph-line:#8a6d2a; --ph-ink:#f0d58c; --photo-a:#223042; --photo-b:#1a2533;
+    color-scheme:dark } }
+  :root[data-theme="dark"]{
+    --gold:#d4ad62; --gold-soft:#2c2515; --ink:#e4e9ef; --muted:#9eabb9; --line:#263445;
+    --bg:#0c131b; --bg-alt:#111b26; --surface:#162230; --heading:#eef3f8; --header-bg:rgba(12,19,27,.94);
+    --footer:#060d16; --ph-bg:#3a3116; --ph-line:#8a6d2a; --ph-ink:#f0d58c; --photo-a:#223042; --photo-b:#1a2533;
+    color-scheme:dark }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Noto Sans KR",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;word-break:keep-all}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+  .ph{background:var(--ph-bg);border:1px dashed var(--ph-line);border-radius:4px;padding:0 4px;color:var(--ph-ink);font-size:.92em}
+
+  /* header */
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--header-bg)}
+  header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--header-bg);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.25rem;color:var(--heading)}
+  .logo-mark{width:36px;height:36px;border-radius:9px;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-size:1rem}
+  .logo small{display:block;font-size:.62rem;font-weight:500;letter-spacing:.18em;color:var(--muted);line-height:1}
+  nav ul{display:flex;gap:28px;list-style:none;font-weight:500;font-size:.95rem}
+  nav a:hover{color:var(--gold)}
+  .btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:700;font-size:.95rem;transition:.2s}
+  .btn-gold{background:var(--gold);color:#fff}
+  .btn-gold:hover{background:#ad8538}
+  .btn-line{border:1.5px solid rgba(255,255,255,.6);color:#fff}
+  .btn-line:hover{background:rgba(255,255,255,.1)}
+  .menu-btn{display:none;background:none;border:0;font-size:1.6rem;color:var(--heading);cursor:pointer}
+
+  /* hero */
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:110px 0 120px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-120px;top:-120px;width:480px;height:480px;border-radius:50%;border:70px solid rgba(196,154,74,.12)}
+  .eyebrow{color:var(--gold);font-weight:700;letter-spacing:.2em;font-size:.82rem;margin-bottom:18px}
+  .hero h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.3;font-weight:900;margin-bottom:22px}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero p{font-size:1.1rem;opacity:.85;max-width:620px;margin-bottom:36px}
+  .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+
+  /* sections */
+  section{padding:96px 0}
+  .alt{background:var(--bg-alt)}
+  .sec-head{text-align:center;margin-bottom:56px}
+  .sec-head .eyebrow{margin-bottom:10px}
+  .sec-head h2{font-size:clamp(1.6rem,3.5vw,2.2rem);color:var(--heading);font-weight:900}
+  .sec-head p{color:var(--muted);margin-top:10px}
+
+  .about{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+  .about h3{font-size:1.6rem;color:var(--heading);line-height:1.45;margin-bottom:18px}
+  .about p{color:var(--muted);margin-bottom:14px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px 16px;text-align:center}
+  .stat b{display:block;font-size:2rem;color:var(--gold);font-weight:900}
+  .stat span{font-size:.88rem;color:var(--muted)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px 26px;transition:.25s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(15,42,74,.08);border-color:var(--gold)}
+  .icon{width:52px;height:52px;border-radius:12px;background:var(--gold-soft);display:grid;place-items:center;font-size:1.5rem;margin-bottom:18px}
+  .card h4{font-size:1.15rem;color:var(--heading);margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.94rem}
+  .card ul{margin-top:12px;padding-left:18px;color:var(--muted);font-size:.9rem}
+
+  .profile{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:40px}
+  .photo{aspect-ratio:3/4;border-radius:12px;background:linear-gradient(160deg,var(--photo-a),var(--photo-b));display:grid;place-items:center;color:#7d8896;font-size:.9rem}
+  .profile h3{font-size:1.5rem;color:var(--heading)}
+  .profile .role{color:var(--gold);font-weight:700;margin-bottom:18px}
+  .profile h5{font-size:.95rem;color:var(--heading);margin:18px 0 6px}
+  .profile ul{list-style:none;color:var(--muted);font-size:.94rem}
+  .profile li::before{content:"·";color:var(--gold);font-weight:900;margin-right:8px}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+  .step{background:var(--surface);border-radius:var(--radius);padding:28px 22px;border-top:4px solid var(--gold);counter-increment:s}
+  .step::before{content:"STEP 0" counter(s);display:block;font-size:.78rem;font-weight:700;letter-spacing:.12em;color:var(--gold);margin-bottom:8px}
+  .step h4{color:var(--heading);margin-bottom:6px}
+  .step p{font-size:.9rem;color:var(--muted)}
+
+  .post{display:block;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:.2s}
+  .post:hover{border-color:var(--gold)}
+  .post .tag{font-size:.78rem;font-weight:700;color:var(--gold)}
+  .post h4{color:var(--heading);margin:6px 0 8px;line-height:1.45}
+  .post p{font-size:.9rem;color:var(--muted)}
+  .feature{padding:36px;max-width:900px;margin:0 auto}
+  .feature h4{font-size:1.3rem}
+  .checks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0 18px}
+  .checks>div{background:var(--bg-alt);border-radius:10px;padding:18px}
+  .checks b{color:var(--heading);font-size:.95rem}
+  .checks ul{padding-left:18px;margin-top:6px;font-size:.88rem;color:var(--muted)}
+  .more{font-weight:700;color:var(--gold);font-size:.9rem}
+  @media (max-width:760px){.checks{grid-template-columns:1fr}.feature{padding:24px}}
+  .center{text-align:center;margin-top:36px}
+  .btn-navy{background:var(--navy);color:#fff}
+  .btn-navy:hover{background:var(--navy-2)}
+
+  .contact{display:grid;grid-template-columns:1fr 1.2fr;gap:40px}
+  .info{background:var(--navy);color:#fff;border-radius:var(--radius);padding:40px}
+  .info h3{font-size:1.4rem;margin-bottom:24px}
+  .info dl{display:grid;grid-template-columns:80px 1fr;gap:14px 10px;font-size:.95rem}
+  .info dt{color:var(--gold);font-weight:700}
+  .info .ph{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.4);color:#ffe9b8}
+  form{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:40px;display:grid;gap:14px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  label{font-size:.85rem;font-weight:700;color:var(--heading);display:block;margin-bottom:4px}
+  input,select,textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:.95rem;background:var(--surface);color:var(--ink)}
+  .form-msg{background:var(--gold-soft);color:var(--ink);border-radius:10px;padding:12px 14px;font-size:.92rem}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);border-color:transparent}
+  textarea{min-height:130px;resize:vertical}
+  .agree{font-size:.85rem;color:var(--muted);display:flex;gap:8px;align-items:center}
+  .agree input{width:auto}
+  form button{border:0;cursor:pointer;width:100%}
+
+  footer{background:var(--footer);color:#9aa8b8;padding:44px 0;font-size:.86rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer strong{color:#fff}
+
+  @media (max-width:900px){
+    .about,.contact,.profile{grid-template-columns:1fr}
+    .profile .photo{max-width:240px}
+    .steps{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:760px){
+    .menu-btn{display:block}
+    nav{position:absolute;top:68px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);display:none}
+    nav.open{display:block}
+    nav ul{flex-direction:column;gap:0;padding:8px 20px 16px}
+    nav li a{display:block;padding:12px 0;border-bottom:1px solid var(--line)}
+    .nav .btn-gold{display:none}
+    section{padding:72px 0}
+    .hero{padding:80px 0 90px}
+    .row,.steps{grid-template-columns:1fr}
+    .stats{grid-template-columns:repeat(3,1fr)}
+    .stat b{font-size:1.5rem}
+    .profile,.info,form{padding:26px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo">
+      <span class="logo-mark">HN</span>
+      <span>한남컨설팅<small>HANNAM CONSULTING</small></span>
+    </a>
+    <nav id="nav">
+      <ul>
+        <li><a href="#about">회사소개</a></li>
+        <li><a href="#services">서비스</a></li>
+        <li><a href="#expert">전문가</a></li>
+        <li><a href="#process">진행절차</a></li>
+        <li><a href="#insight">인사이트</a></li>
+        <li><a href="#contact">상담문의</a></li>
+      </ul>
+    </nav>
+    <a href="tel:01096553959" class="btn btn-gold">📞 010-9655-3959</a>
+    <button class="menu-btn" aria-label="메뉴 열기" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">중소기업 성장 로드맵</div>
+      <h1>스타트업과 중소기업의<br><em>성장 로드맵</em>을 설계합니다</h1>
+      <p>기업부설연구소·연구개발전담부서 설립부터 현장조사 대비, 국가지원사업까지. 변리사와 서울대 출신 컨설턴트가 기업의 다음 단계를 함께 준비합니다.</p>
+      <div class="actions">
+        <a href="#contact" class="btn btn-gold">상담 신청하기</a>
+        <a href="#services" class="btn btn-line">서비스 살펴보기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <div class="eyebrow">ABOUT US</div>
+        <h3>설립에서 끝나지 않고,<br>운영까지 함께하는 파트너</h3>
+        <p>(주)한남컨설팅은 스타트업과 중소기업에 성장 로드맵을 제공합니다. 기업 신인도를 높이는 연구조직 인정부터 국가지원사업 활용까지, 기업이 성장 단계마다 갖춰야 할 요건을 함께 준비합니다.</p>
+        <p>인정을 받는 것보다 신고한 내용대로 운영하는 것이 더 중요합니다. 설립 후에도 정기 점검으로 현장조사와 사후관리에 미리 대비하도록 돕습니다.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>변리사</b><span>지식재산 전문가 참여</span></div>
+        <div class="stat"><b>서울대</b><span>출신 컨설턴트</span></div>
+        <div class="stat"><b>강남</b><span>테헤란로 파르나스타워</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">SERVICES</div>
+        <h2>주요 서비스</h2>
+        <p>중소기업의 성장 단계에 필요한 요건을 한곳에서 준비합니다.</p>
+      </div>
+      <div class="grid">
+        <div class="card"><div class="icon">🔬</div><h4>기업부설연구소·연구개발전담부서 설립</h4><p>한국산업기술진흥협회(KOITA) 인정 요건을 검토하고 설립 신고를 지원합니다.</p><ul><li>인적·물적 요건 진단</li><li>연구공간 구성·신고 서류 준비</li></ul></div>
+        <div class="card"><div class="icon">📋</div><h4>사후관리·현장조사 대비</h4><p>설립 후 달라진 운영 상태를 점검해, 사전 통보 없는 현장조사에도 대응할 수 있게 합니다.</p><ul><li>연구원·연구공간 정기 점검</li><li>연구개발 증빙 관리</li></ul></div>
+        <div class="card"><div class="icon">🏛️</div><h4>국가지원사업</h4><p>기업에 맞는 정부 지원사업을 찾고 신청을 지원합니다.</p><ul><li><span class="ph">[세부 항목 입력]</span></li></ul></div>
+        <div class="card"><div class="icon">🎓</div><h4>한남비즈아카데미</h4><p>대표님과 실무자를 위한 교육 프로그램입니다.</p><ul><li><span class="ph">[교육 과정 입력]</span></li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERT -->
+  <section id="expert">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">OUR EXPERT</div>
+        <h2>전문 컨설턴트</h2>
+      </div>
+      <div class="profile">
+        <div class="photo">대표 사진</div>
+        <div>
+          <h3><span class="ph">[대표자 성함]</span></h3>
+          <div class="role">변리사 · 서울대 출신 컨설턴트 팀</div>
+          <p style="color:var(--muted)"><span class="ph">[한두 줄 소개 / 컨설팅 철학]</span></p>
+          <h5>주요 경력</h5>
+          <ul><li><span class="ph">[경력 1]</span></li><li><span class="ph">[경력 2]</span></li><li><span class="ph">[경력 3]</span></li></ul>
+          <h5>자격·학력</h5>
+          <ul><li><span class="ph">[자격증 / 학위]</span></li><li><span class="ph">[자격증 / 학위]</span></li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">PROCESS</div>
+        <h2>컨설팅 진행 절차</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><h4>상담 신청</h4><p>전화·온라인으로 문의를 남겨주시면 담당자가 연락드립니다.</p></div>
+        <div class="step"><h4>현황 진단</h4><p>인력·공간·연구 증빙 등 요건 충족 여부를 점검합니다.</p></div>
+        <div class="step"><h4>솔루션 제안</h4><p>목표와 여건에 맞는 맞춤형 실행 방안을 제시합니다.</p></div>
+        <div class="step"><h4>실행·사후관리</h4><p>실행을 지원하고 성과가 날 때까지 꾸준히 관리합니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIGHT -->
+  <section id="insight">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">INSIGHT</div>
+        <h2>전문가 칼럼</h2>
+        <p>현장에서 자주 받는 질문을 블로그에서 정리하고 있습니다.</p>
+      </div>
+      <a class="post feature" href="https://blog.naver.com/hncexpert/224418729334" target="_blank" rel="noopener">
+        <span class="tag">회사소개 · 2026. 9. 21.</span>
+        <h4>기업부설연구소·연구개발전담부서, 현장조사 준비하세요</h4>
+        <p>설립한 지 2년이 지났다면 지금 점검할 때입니다. 연구원 퇴사, 주소 이전, 부적절한 연구공간 신고처럼 설립 당시 신고 내용과 실제 운영이 달라지는 경우가 많습니다. 현장조사는 사전 통보 없이 나올 수도 있습니다.</p>
+        <div class="checks">
+          <div><b>1. 연구원</b><ul><li>등록된 연구원이 현재 근무 중인가?</li><li>4대보험 가입자명부에 등재되어 있는가?</li><li>발령장·명함이 있는가?</li></ul></div>
+          <div><b>2. 연구공간</b><ul><li>현판이 반영구 재질로 부착되어 있는가?</li><li>실제 연구가 가능한 형태인가?</li><li>최초 등록 도면과 일치하는가?</li></ul></div>
+          <div><b>3. 연구개발 내용</b><ul><li>연구개발 수행을 증빙할 자료를 갖추고 있는가?</li></ul></div>
+        </div>
+        <span class="more">전문 읽기 →</span>
+      </a>
+      <div class="center"><a class="btn btn-navy" href="https://blog.naver.com/hncexpert" target="_blank" rel="noopener">네이버 블로그 바로가기 →</a></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">CONTACT</div>
+        <h2>상담 문의</h2>
+        <p>문의를 남겨주시면 영업일 기준 1일 이내에 연락드립니다.</p>
+      </div>
+      <div class="contact">
+        <div class="info">
+          <h3>(주)한남컨설팅</h3>
+          <dl>
+            <dt>전화</dt><dd><a href="tel:01096553959">010-9655-3959</a></dd>
+            <dt>이메일</dt><dd><span class="ph">[email@example.com]</span></dd>
+            <dt>주소</dt><dd>서울특별시 강남구 테헤란로 521<br>파르나스타워 29층</dd>
+            <dt>운영시간</dt><dd>평일 09:00 – 18:00</dd>
+            <dt>블로그</dt><dd><a href="https://blog.naver.com/hncexpert" target="_blank" rel="noopener">blog.naver.com/hncexpert</a></dd>
+          </dl>
+        </div>
+        <form id="form">
+          <div class="row">
+            <div><label for="name">성함 / 회사명</label><input id="name" required placeholder="홍길동 / (주)○○"></div>
+            <div><label for="tel">연락처</label><input id="tel" type="tel" required placeholder="010-0000-0000"></div>
+          </div>
+          <div><label for="type">상담 분야</label>
+            <select id="type"><option>기업부설연구소·전담부서 설립</option><option>사후관리·현장조사 대비</option><option>국가지원사업</option><option>한남비즈아카데미</option><option>기타</option></select>
+          </div>
+          <div><label for="msg">문의 내용</label><textarea id="msg" placeholder="현재 상황과 궁금하신 점을 자유롭게 적어주세요."></textarea></div>
+          <label class="agree"><input type="checkbox" required> 개인정보 수집·이용에 동의합니다.</label>
+          <button class="btn btn-gold" type="submit">상담 신청하기</button>
+          <p class="form-msg" id="formMsg" role="status" hidden>온라인 접수는 준비 중입니다. 010-9655-3959로 전화 주시면 바로 상담해 드립니다.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><strong>(주)한남컨설팅</strong> · 대표 <span class="ph">[성함]</span> · 사업자등록번호 <span class="ph">[000-00-00000]</span><br>서울특별시 강남구 테헤란로 521 파르나스타워 29층 · Tel 010-9655-3959</div>
+    <div>© 2026 Hannam Consulting. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // 임시: 실제 접수 방식(이메일 전송, 구글폼, 카카오채널 등) 확정 후 교체
+  document.getElementById('form').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('formMsg').hidden=false;
+  });
+  document.querySelectorAll('#nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
+</script>
+</body>
+</html>
