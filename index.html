@@ -173,7 +173,7 @@
         <li><a href="#contact">상담문의</a></li>
       </ul>
     </nav>
-    <a href="tel:01096553959" class="btn btn-gold">📞 010-9655-3959</a>
+    <a href="mailto:hncexpert1@gmail.com" class="btn btn-gold">✉ hncexpert1@gmail.com</a>
     <button class="menu-btn" aria-label="메뉴 열기" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
   </div>
 </header>
@@ -256,7 +256,7 @@
         <h2>컨설팅 진행 절차</h2>
       </div>
       <div class="steps">
-        <div class="step"><h4>상담 신청</h4><p>전화·온라인으로 문의를 남겨주시면 담당자가 연락드립니다.</p></div>
+        <div class="step"><h4>상담 신청</h4><p>이메일이나 상담 신청서로 문의를 남겨주시면 담당자가 연락드립니다.</p></div>
         <div class="step"><h4>현황 진단</h4><p>인력·공간·연구 증빙 등 요건 충족 여부를 점검합니다.</p></div>
         <div class="step"><h4>솔루션 제안</h4><p>목표와 여건에 맞는 맞춤형 실행 방안을 제시합니다.</p></div>
         <div class="step"><h4>실행·사후관리</h4><p>실행을 지원하고 성과가 날 때까지 꾸준히 관리합니다.</p></div>
@@ -299,8 +299,7 @@
         <div class="info">
           <h3>(주)한남컨설팅</h3>
           <dl>
-            <dt>전화</dt><dd><a href="tel:01096553959">010-9655-3959</a></dd>
-            <dt>이메일</dt><dd><span class="ph">[email@example.com]</span></dd>
+            <dt>이메일</dt><dd><a href="mailto:hncexpert1@gmail.com">hncexpert1@gmail.com</a></dd>
             <dt>주소</dt><dd>서울특별시 강남구 테헤란로 521<br>파르나스타워 29층</dd>
             <dt>운영시간</dt><dd>평일 09:00 – 18:00</dd>
             <dt>블로그</dt><dd><a href="https://blog.naver.com/hncexpert" target="_blank" rel="noopener">blog.naver.com/hncexpert</a></dd>
@@ -309,7 +308,7 @@
         <form id="form">
           <div class="row">
             <div><label for="name">성함 / 회사명</label><input id="name" required placeholder="홍길동 / (주)○○"></div>
-            <div><label for="tel">연락처</label><input id="tel" type="tel" required placeholder="010-0000-0000"></div>
+            <div><label for="tel">연락처 (이메일 또는 전화)</label><input id="tel" required placeholder="회신받을 연락처"></div>
           </div>
           <div><label for="type">상담 분야</label>
             <select id="type"><option>기업부설연구소·전담부서 설립</option><option>사후관리·현장조사 대비</option><option>국가지원사업</option><option>한남비즈아카데미</option><option>기타</option></select>
@@ -317,7 +316,7 @@
           <div><label for="msg">문의 내용</label><textarea id="msg" placeholder="현재 상황과 궁금하신 점을 자유롭게 적어주세요."></textarea></div>
           <label class="agree"><input type="checkbox" required> 개인정보 수집·이용에 동의합니다.</label>
           <button class="btn btn-gold" type="submit">상담 신청하기</button>
-          <p class="form-msg" id="formMsg" role="status" hidden>온라인 접수는 준비 중입니다. 010-9655-3959로 전화 주시면 바로 상담해 드립니다.</p>
+          <p class="form-msg" id="formMsg" role="status" hidden>메일 앱에서 작성된 상담 신청서를 보내주세요. 메일 앱이 열리지 않으면 hncexpert1@gmail.com로 직접 보내주시면 됩니다.</p>
         </form>
       </div>
     </div>
@@ -326,16 +325,20 @@
 
 <footer>
   <div class="wrap">
-    <div><strong>(주)한남컨설팅</strong> · 대표 <span class="ph">[성함]</span> · 사업자등록번호 <span class="ph">[000-00-00000]</span><br>서울특별시 강남구 테헤란로 521 파르나스타워 29층 · Tel 010-9655-3959</div>
+    <div><strong>(주)한남컨설팅</strong> · 대표 <span class="ph">[성함]</span> · 사업자등록번호 <span class="ph">[000-00-00000]</span><br>서울특별시 강남구 테헤란로 521 파르나스타워 29층 · hncexpert1@gmail.com</div>
     <div>© 2026 Hannam Consulting. All rights reserved.</div>
   </div>
 </footer>
 
 <script>
-  // 임시: 실제 접수 방식(이메일 전송, 구글폼, 카카오채널 등) 확정 후 교체
+  // 상담 신청: 입력 내용을 담아 메일 앱을 엽니다
   document.getElementById('form').addEventListener('submit', function(e){
     e.preventDefault();
+    const v=id=>document.getElementById(id).value.trim();
+    const subject='[상담 신청] '+v('type')+' - '+v('name');
+    const body='성함/회사명: '+v('name')+'\n연락처: '+v('tel')+'\n상담 분야: '+v('type')+'\n\n문의 내용:\n'+v('msg');
     document.getElementById('formMsg').hidden=false;
+    location.href='mailto:hncexpert1@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
   });
   document.querySelectorAll('#nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
 </script>
